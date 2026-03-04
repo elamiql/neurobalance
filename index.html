@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Neuro Balance ONG</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <img src="assets/logo/logo.jpg" alt="Logo ONG" />
+      <nav>
+        <ul>
+          <li><a href="#" onclick="navegar('inicio')">Inicio</a></li>
+          <li><a href="#" onclick="navegar('actividades')">Actividades</a></li>
+          <li><a href="#" onclick="navegar('objetivos')">Objetivos</a></li>
+          <li class="dropdown">
+            <span>Nosotros ▾</span>
+            <ul class="submenu">
+              <li><a href="#" onclick="navegar('mision')">Misión</a></li>
+              <li><a href="#" onclick="navegar('vision')">Visión</a></li>
+              <li>
+                <a href="#" onclick="navegar('profesionales')">Profesionales</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="inicio" class="seccion">
+        <h2>Inicio</h2>
+        <p>Inicio</p>
+      </section>
+
+      <section id="actividades" class="seccion oculto">
+        <h2>Actividades</h2>
+        <p>Taller / eventos / etc</p>
+      </section>
+
+      <section id="objetivos" class="seccion oculto">
+        <h2>Nuestros Objetivos</h2>
+        <p>Definición de metas para el 2026 en curso.</p>
+      </section>
+    </main>
+
+    <footer>
+      <h3>Contáctanos</h3>
+      <p>contactos</p>
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
+</html>
