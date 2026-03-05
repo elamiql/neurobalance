@@ -7,6 +7,15 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f4f4;
+    font-size: 14px;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
 }
 
 header {
@@ -14,17 +23,80 @@ header {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    padding: 10px 5%;
+    padding: 5px 5%;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    border-bottom: 4px solid #a64d92;
+    border-bottom: 4px solid #D93690;
+    font-size: 18px;
 }
 
 header img {
-    height: 128px;
+    height: 64px;
     width: auto;
     justify-self: start;
 }
 
+footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 40px 5% 20px;
+    margin-top: auto;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h3, .footer-section h4 {
+    color: #D93690;
+    margin-bottom: 15px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.social-icon i {
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.social-icon:hover{
+    color: #D93690;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    font-size: 12px;
+    color: #888;
+}
 nav {
     justify-self: center;
 }
@@ -48,11 +120,15 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #a64d92;
+    color: #A653A0;
 }
 
 .dropdown {
     position: relative;
+}
+
+.dropdown:hover {
+    color: #A653A0;
 }
 
 .submenu {
@@ -62,13 +138,14 @@ nav ul li a:hover {
     left: 0;
     background-color: #ffffff;
     min-width: 150px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 16px rgba(0,0,0,.1);
     border-radius: 4px;
     padding: 10px 0;
 }
 
 .dropdown:hover .submenu {
     display: block;
+    color: #A653A0;
 }
 
 .submenu li {
@@ -85,7 +162,12 @@ nav ul li a:hover {
 }
 
 .seccion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     padding: 20px;
     border: 1px solid #ccc;
     margin-top: 10px;
 }
+

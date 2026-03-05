@@ -4,22 +4,34 @@
     <meta charset="UTF-8" />
     <title>Neuro Balance ONG</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
   </head>
   <body>
     <header>
       <img src="assets/logo/logo.jpg" alt="Logo ONG" />
       <nav>
         <ul>
-          <li><a href="#" onclick="navegar('inicio')">Inicio</a></li>
-          <li><a href="#" onclick="navegar('actividades')">Actividades</a></li>
-          <li><a href="#" onclick="navegar('objetivos')">Objetivos</a></li>
+          <li><a href="#inicio" onclick="navegar('inicio')">Inicio</a></li>
+          <li>
+            <a href="#actividades" onclick="navegar('actividades')"
+              >Actividades</a
+            >
+          </li>
+          <li>
+            <a href="#objetivos" onclick="navegar('objetivos')">Objetivos</a>
+          </li>
           <li class="dropdown">
             <span>Nosotros ▾</span>
             <ul class="submenu">
-              <li><a href="#" onclick="navegar('mision')">Misión</a></li>
-              <li><a href="#" onclick="navegar('vision')">Visión</a></li>
+              <li><a href="#mision" onclick="navegar('mision')">Misión</a></li>
+              <li><a href="#vision" onclick="navegar('vision')">Visión</a></li>
               <li>
-                <a href="#" onclick="navegar('profesionales')">Profesionales</a>
+                <a href="#profesionales" onclick="navegar('profesionales')"
+                  >Profesionales</a
+                >
               </li>
             </ul>
           </li>
@@ -42,11 +54,57 @@
         <h2>Nuestros Objetivos</h2>
         <p>Definición de metas para el 2026 en curso.</p>
       </section>
+
+      <section id="mision" class="seccion oculto">
+        <h2>Misión</h2>
+        <p>
+          Contribuir en la salud mental comunitaria, impulsando el desarrollo y
+          autocuidado de los participantes
+        </p>
+      </section>
+
+      <section id="vision" class="seccion oculto">
+        <h2>Visión</h2>
+        <p>
+          Promover un espacio de participación comunitaria dirigido a potenciar
+          la salud mental con influencias eco-sociales
+        </p>
+      </section>
     </main>
 
     <footer>
-      <h3>Contáctanos</h3>
-      <p>contactos</p>
+      <div class="footer-container">
+        <div class="footer-section">
+          <h4>Contacto</h4>
+          <p>Quirihue, Chile</p>
+          <p>neurobalanceqhue@gmail.com</p>
+          <p>+56 9 2181 1753</p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Síguenos</h4>
+          <div class="social-links">
+            <a
+              href="https://www.instagram.com/neurobalanceqhue?igsh=MXNucTd2dTVpZmFwOQ=="
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-icon"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="https://www.facebook.com/share/1F5poZHFhz/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-icon"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Neuro Balance ONG</p>
+      </div>
     </footer>
     <script src="js/main.js"></script>
   </body>
