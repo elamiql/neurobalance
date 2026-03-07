@@ -15,3 +15,21 @@ function navegar(idDestino) {
         console.error("No existe seccion con ID: " + idDestino);
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.getElementById('menu-btn');
+    const navMenu = document.querySelector('nav');
+
+    menuBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+        
+        menuBtn.classList.toggle('active');
+    });
+
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('show');
+            menuBtn.classList.remove('active');
+        });
+    });
+});
