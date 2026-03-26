@@ -1,0 +1,36 @@
+<main>
+  <section id="inicio" class="seccion" [class.oculto]="navService.seccionActiva !== 'inicio'">
+    <h2>Inicio</h2>
+    <p>Inicio</p>
+  </section>
+
+  <section
+    id="actividades"
+    class="seccion"
+    [class.oculto]="navService.seccionActiva !== 'actividades'"
+  >
+    <h2>Actividades</h2>
+    <p>Taller / eventos / etc</p>
+  </section>
+
+  <section id="objetivos" class="seccion" [class.oculto]="navService.seccionActiva !== 'objetivos'">
+    <h2>Nuestros Objetivos</h2>
+    <p>Definición de metas para el 2026 en curso.</p>
+  </section>
+
+  <section id="mision" class="seccion" [class.oculto]="navService.seccionActiva !== 'mision'">
+    <h2>Misión</h2>
+    <p>
+      Contribuir en la salud mental comunitaria, impulsando el desarrollo y autocuidado de los
+      participantes
+    </p>
+  </section>
+
+  <section id="vision" class="seccion" [class.oculto]="navService.seccionActiva !== 'vision'">
+    <h2>Visión</h2>
+    <p>
+      Promover un espacio de participación comunitaria dirigido a potenciar la salud mental con
+      influencias eco-sociales
+    </p>
+  </section>
+</main>

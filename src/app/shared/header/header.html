@@ -1,0 +1,23 @@
+<header>
+  <img src="assets/logo/logo.jpg" alt="Logo ONG" />
+
+  <button class="menu-toggle" [class.active]="menuAbierto" (click)="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <nav [class.show]="menuAbierto">
+    <ul>
+      <li><a (click)="navegar('inicio')">Inicio</a></li>
+      <li><a (click)="navegar('actividades')">Actividades</a></li>
+      <li><a (click)="navegar('objetivos')">Objetivos</a></li>
+      <li class="dropdown">
+        <span>Nosotros ▾</span>
+        <ul class="submenu">
+          <li><a (click)="navegar('mision')">Misión</a></li>
+          <li><a (click)="navegar('vision')">Visión</a></li>
+          <li><a (click)="navegar('profesionales')">Profesionales</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
