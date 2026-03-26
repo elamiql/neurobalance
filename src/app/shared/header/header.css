@@ -27,7 +27,7 @@ header::after {
 nav ul {
     list-style: none;
     display: flex;
-    gap: 30px
+    gap: 30px;
 }
 
 nav ul li a,
@@ -52,7 +52,7 @@ nav ul li span:hover {
     color: #A653A0;
 }
 
-.submenu {
+nav ul .submenu {
     display: none;
     position: absolute;
     top: 100%;
@@ -62,18 +62,20 @@ nav ul li span:hover {
     box-shadow: 0 8px 16px rgba(0,0,0,.1);
     border-radius: 4px;
     padding: 10px 0;
+    flex-direction: column;
+    gap: 0;
+    z-index: 100;
 }
 
-.dropdown:hover .submenu {
-    display: block;
-    color: #A653A0;
+nav ul .submenu.show {
+    display: flex;
 }
 
-.submenu li {
-    display: block;
+nav ul .submenu li {
+    width: 100%;
 }
 
-.submenu li a {
+nav ul .submenu li a {
     padding: 10px 20px;
     display: block;
 }
@@ -160,7 +162,7 @@ nav ul li span:hover {
         padding: 15px;
     }
 
-    .submenu {
+    nav ul .submenu {
         position: static;
         width: 100%;
         box-shadow: none;
