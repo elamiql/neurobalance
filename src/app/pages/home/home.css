@@ -11,3 +11,143 @@
     border: 1px solid #ccc;
     margin-top: 10px;
 }
+
+.intro-text {
+    margin-top: 0;
+    padding-top: 40px;
+}
+
+.herocarousel {
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    max-height: 600px;
+    overflow: hidden;
+    position: relative;
+    background-color: #333;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  display: flex;
+  align-items: flex-end;
+}
+
+.slide.visible {
+  opacity: 1;
+  z-index: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: #ffffff;
+  padding: 15px;
+  font-size: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s;
+}
+
+.nav-btn:hover {
+  background: rgba(255,255,255,0.5);
+}
+
+.prev { left: 30px; }
+.next { right: 30px; }
+
+@media (max-width: 768px) {
+  .herocarousel { height: 40vh; min-height: 300px; }
+  .slide-caption h3 { font-size: 1.8rem; }
+  .slide-caption p { font-size: 1rem; }
+  .nav-btn { padding: 10px; font-size: 16px; }
+}
+
+/* --- Estructura Minimalista --- */
+.minimal-section {
+  text-align: left; /* Alineación natural para lectura */
+  align-items: flex-start;
+  max-width: 900px; /* Un ancho más contenido para que los textos no queden eternos */
+  margin: 0 auto;
+}
+
+/* --- Encabezados Sobrios --- */
+.header-seccion {
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.etiqueta {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-purple); /* El único toque de color */
+  font-weight: 700;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.header-seccion h2, .statement-box h2 {
+  font-size: 2.4rem;
+  color: var(--color-dark-gray);
+  margin: 0;
+  font-weight: 800;
+}
+
+.txt-muted {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.lista-minimal {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  border-top: 1px solid #eee;
+}
+
+.lista-minimal li {
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+  color: #333;
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+.statement-box {
+  padding: 0 0 0 30px;
+  border-left: 4px solid var(--color-purple);
+  margin: 20px 0;
+}
+
+.statement-text {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #222;
+  margin-top: 25px;
+  font-weight: 400;
+}
+
+/* --- Responsividad --- */
+@media (max-width: 768px) {
+  .header-seccion h2, .statement-box h2 { font-size: 2rem; }
+  .statement-text { font-size: 1.4rem; }
+  .statement-box { padding-left: 20px; }
+}

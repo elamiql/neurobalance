@@ -1,36 +1,109 @@
 <main>
-  <section id="inicio" class="seccion" [class.oculto]="navService.seccionActiva !== 'inicio'">
-    <h2>Inicio</h2>
-    <p>Inicio</p>
-  </section>
+  @if (datosOng()) {
+    <div id="inicio" [class.oculto]="navService.seccionActiva !== 'inicio'">
+      <section class="herocarousel">
+        @for (slide of slidesCarrusel(); track $index) {
+          <div class="slide" [class.visible]="$index === currentSlide()">
+            <img [src]="slide.imagen" alt="Slider placeholder" />
+            <div class="slide-caption"></div>
+          </div>
+        }
+        <button class="nav-btn prev" (click)="prevSlide()">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="nav-btn next" (click)="nextSlide()">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </section>
 
-  <section
-    id="actividades"
-    class="seccion"
-    [class.oculto]="navService.seccionActiva !== 'actividades'"
-  >
-    <h2>Actividades</h2>
-    <p>Taller / eventos / etc</p>
-  </section>
+      <section class="seccion intro-text">
+        <h2>Neuro Balance</h2>
+        <p>
+          Su principal objetivo es abordar y mejorar problemas sociales, humanitarios y
+          medioambientales.
+        </p>
+      </section>
+    </div>
 
-  <section id="objetivos" class="seccion" [class.oculto]="navService.seccionActiva !== 'objetivos'">
-    <h2>Nuestros Objetivos</h2>
-    <p>Definición de metas para el 2026 en curso.</p>
-  </section>
+    <!-- ACTIVIDADES -->
+    <section
+      id="actividades"
+      class="seccion minimal-section"
+      [class.oculto]="navService.seccionActiva !== 'actividades'"
+    >
+      <div class="header-seccion">
+        <span class="etiqueta">Servicios</span>
+        <h2>Actividades que desarrollamos</h2>
+      </div>
 
-  <section id="mision" class="seccion" [class.oculto]="navService.seccionActiva !== 'mision'">
-    <h2>Misión</h2>
-    <p>
-      Contribuir en la salud mental comunitaria, impulsando el desarrollo y autocuidado de los
-      participantes
-    </p>
-  </section>
+      <ul class="lista-minimal">
+        @for (actividad of datosOng().actividades; track $index) {
+          <li>{{ actividad }}</li>
+        }
+      </ul>
+    </section>
 
-  <section id="vision" class="seccion" [class.oculto]="navService.seccionActiva !== 'vision'">
-    <h2>Visión</h2>
-    <p>
-      Promover un espacio de participación comunitaria dirigido a potenciar la salud mental con
-      influencias eco-sociales
-    </p>
-  </section>
+    <!-- OBJETIVOS -->
+    <section
+      id="objetivos"
+      class="seccion minimal-section"
+      [class.oculto]="navService.seccionActiva !== 'objetivos'"
+    >
+      <div class="header-seccion">
+        <span class="etiqueta">Metas</span>
+        <h2>Nuestros Objetivos de Desarrollo</h2>
+      </div>
+
+      <ul class="lista-minimal">
+        @for (objetivo of datosOng().objetivos; track $index) {
+          <li>{{ objetivo }}</li>
+        }
+      </ul>
+    </section>
+
+    <!-- MISIÓN -->
+    <section
+      id="mision"
+      class="seccion minimal-section"
+      [class.oculto]="navService.seccionActiva !== 'mision'"
+    >
+      <div class="statement-box">
+        <span class="etiqueta">Propósito</span>
+        <h2>Misión</h2>
+        <p class="statement-text">{{ datosOng().mision }}</p>
+      </div>
+    </section>
+
+    <!-- VISIÓN -->
+    <section
+      id="vision"
+      class="seccion minimal-section"
+      [class.oculto]="navService.seccionActiva !== 'vision'"
+    >
+      <div class="statement-box">
+        <span class="etiqueta">Futuro</span>
+        <h2>Visión</h2>
+        <p class="statement-text">{{ datosOng().vision }}</p>
+      </div>
+    </section>
+
+    <!-- PROFESIONALES -->
+    <section
+      id="profesionales"
+      class="seccion minimal-section"
+      [class.oculto]="navService.seccionActiva !== 'profesionales'"
+    >
+      <div class="header-seccion">
+        <span class="etiqueta">Equipo</span>
+        <h2>Nuestros Profesionales</h2>
+        <p class="txt-muted" style="margin-top: 20px">
+          Próximamente conocerás al equipo detrás de Neuro Balance...
+        </p>
+      </div>
+    </section>
+  } @else {
+    <div class="seccion">
+      <h2>Cargando información...</h2>
+    </div>
+  }
 </main>
