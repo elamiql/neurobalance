@@ -1,34 +1,70 @@
 <footer>
-  <div class="footer-container">
-    <div class="footer-section">
-      <h4>Contacto</h4>
-      <p>Quirihue, Chile</p>
-      <p>neurobalanceqhue@gmail.com</p>
-      <p>+56 9 2181 1753</p>
-    </div>
-    <div class="footer-section">
-      <h4>Síguenos</h4>
-      <div class="social-links">
-        <a
-          href="https://www.instagram.com/neurobalanceqhue?igsh=MXNucTd2dTVpZmFwOQ=="
-          target="_blank"
-          rel="noopener noreferrer"
-          class="social-icon"
-        >
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a
-          href="https://www.facebook.com/share/1F5poZHFhz/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="social-icon"
-        >
-          <i class="fab fa-facebook-f"></i>
-        </a>
+  @if (datosOng()) {
+    <div class="footer-main">
+      <!-- Logo + tagline -->
+      <div class="footer-col footer-brand">
+        <img
+          src="logo/Logo Neuro Balance RRSS - Sin Fondo 2x.png"
+          alt="Neuro Balance"
+          class="footer-logo"
+        />
+        <p class="footer-tagline">{{ datosOng().taglineFooter }}</p>
+      </div>
+
+      <!-- Links -->
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul class="footer-links">
+          <li><a (click)="navegar('inicio')">Inicio</a></li>
+          <li><a (click)="navegar('actividades')">Actividades</a></li>
+          <li><a (click)="navegar('objetivos')">Objetivos</a></li>
+          <li><a (click)="navegar('mision')">Misión</a></li>
+          <li><a (click)="navegar('vision')">Visión</a></li>
+        </ul>
+      </div>
+
+      <!-- Contacto -->
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul class="footer-contact">
+          <li>
+            <i class="fas fa-map-marker-alt"></i>
+            {{ datosOng().contacto.direccion }}
+          </li>
+          <li>
+            <i class="fas fa-envelope"></i>
+            <a [href]="'mailto:' + datosOng().contacto.email">{{ datosOng().contacto.email }}</a>
+          </li>
+          <li>
+            <i class="fas fa-phone"></i>
+            <a [href]="'tel:' + datosOng().contacto.telefono">{{
+              datosOng().contacto.telefonoDisplay
+            }}</a>
+          </li>
+        </ul>
+        <div class="footer-social">
+          <a
+            [href]="datosOng().redes.instagram"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            [href]="datosOng().redes.facebook"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+          >
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
+  }
+
   <div class="footer-bottom">
-    <p>&copy; 2026 Neuro Balance ONG</p>
+    <p>&copy; 2026 Neuro Balance ONG · Quirihue, Chile</p>
   </div>
 </footer>

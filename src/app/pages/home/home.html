@@ -42,16 +42,8 @@
           <div class="qs-texto">
             <span class="etiqueta">Sobre nosotros</span>
             <h2 class="qs-titulo">¿Quiénes<br /><em>somos?</em></h2>
-            <p class="qs-parrafo">
-              Somos un proyecto en desarrollo de ONG, pionero en la comuna de Quirihue, creado a
-              partir de la necesidad en salud mental que pesquisamos al ingresar a la red del
-              servicio de salud pública.
-            </p>
-            <p class="qs-parrafo">
-              Nuestro foco es prestar apoyo desde un enfoque comunitario con paradigmas
-              biopsicosociales, priorizando a niños, niñas y adolescentes neurodivergentes y
-              neurotípicos, abriendo paso a toda la comunidad de manera paulatina.
-            </p>
+            <p class="qs-parrafo">{{ datosOng().descripcion }}</p>
+            <p class="qs-parrafo">{{ datosOng().descripcion2 }}</p>
           </div>
 
           <!-- Columna derecha: misión + visión como cards -->
@@ -122,12 +114,9 @@
               </div>
               <h3>Nuestros Valores</h3>
               <ul class="qs-valores">
-                <li>Calidad</li>
-                <li>Compromiso</li>
-                <li>Honestidad</li>
-                <li>Trabajo en equipo</li>
-                <li>Responsabilidad</li>
-                <li>Vocación de servicio</li>
+                @for (valor of datosOng().valores; track $index) {
+                  <li>{{ valor }}</li>
+                }
               </ul>
             </div>
           </div>
