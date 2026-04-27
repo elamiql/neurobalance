@@ -1,21 +1,41 @@
 <main>
   @if (datosOng()) {
     <div id="inicio" [class.oculto]="navService.seccionActiva !== 'inicio'">
-      <section class="herocarousel">
-        @for (slide of slidesCarrusel(); track $index) {
-          <div class="slide" [class.visible]="$index === currentSlide()">
-            <img [src]="slide.imagen" alt="Slider placeholder" />
-            <div class="slide-caption"></div>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-bg">
+          <!-- Capa de color/gradiente de fondo (reemplazar por imagen real después) -->
+          <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Salud mental<br />
+            <em>para todos.</em>
+          </h1>
+          <p class="hero-subtitle">
+            Apoyamos el bienestar de nuestra comunidad desde un enfoque comunitario, humano y
+            cercano.
+          </p>
+          <div class="hero-actions">
+            <button class="btn-primary" (click)="navService.cambiarSeccion('actividades')">
+              Conoce nuestras actividades
+            </button>
+            <button class="btn-ghost" (click)="navService.cambiarSeccion('mision')">
+              Quiénes somos
+            </button>
           </div>
-        }
-        <button class="nav-btn prev" (click)="prevSlide()">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="nav-btn next" (click)="nextSlide()">
-          <i class="fas fa-chevron-right"></i>
-        </button>
+        </div>
+
+        <!-- Decoración wave inferior -->
+        <div class="hero-wave">
+          <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#ffffff" />
+          </svg>
+        </div>
       </section>
 
+      <!-- INTRO -->
       <section class="seccion intro-text">
         <h2>Neuro Balance</h2>
         <p>
