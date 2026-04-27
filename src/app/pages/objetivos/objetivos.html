@@ -1,1 +1,25 @@
-<p>objetivos works!</p>
+<main class="objetivos-page">
+  @if (datosOng()) {
+    <section class="obj-hero">
+      <span class="etiqueta">Metas</span>
+      <h1>Nuestros <em>Objetivos</em></h1>
+      <p>
+        Los compromisos que orientan nuestro trabajo hacia el bienestar integral de la comunidad de
+        Quirihue.
+      </p>
+    </section>
+
+    <section class="obj-grid-section">
+      @for (objetivo of datosOng().objetivos; track $index) {
+        <div class="obj-card">
+          <div class="obj-card__num" [class.alt]="$index % 2 !== 0">
+            {{ ($index + 1).toString().padStart(2, '0') }}
+          </div>
+          <p>{{ objetivo }}</p>
+        </div>
+      }
+    </section>
+  } @else {
+    <p>Cargando...</p>
+  }
+</main>

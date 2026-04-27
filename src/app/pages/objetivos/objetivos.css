@@ -1,0 +1,87 @@
+.objetivos-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 5%;
+}
+
+/* ── Hero de sección ── */
+.obj-hero {
+  margin-bottom: 3rem;
+}
+
+.obj-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #3c3c3b;
+  line-height: 1.15;
+  margin: 0.5rem 0;
+}
+
+.obj-hero h1 em {
+  font-style: italic;
+  color: #d7388c;
+}
+
+.obj-hero p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.97rem;
+  color: #888;
+  max-width: 560px;
+  line-height: 1.65;
+  margin-top: 0.5rem;
+}
+
+/* ── Grid de objetivos ── */
+.obj-grid-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.obj-card {
+  background: #ffffff;
+  border: 1px solid #ebebeb;
+  border-radius: 10px;
+  padding: 1.25rem;
+  display: flex;
+  gap: 0.875rem;
+  align-items: flex-start;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.obj-card:hover {
+  box-shadow: 0 4px 18px rgba(215, 56, 140, 0.09);
+  transform: translateY(-2px);
+}
+
+.obj-card__num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgba(215, 56, 140, 0.2);
+  line-height: 1;
+  min-width: 28px;
+  padding-top: 2px;
+}
+
+.obj-card__num.alt {
+  color: rgba(166, 83, 155, 0.22);
+}
+
+.obj-card p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.875rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .obj-grid-section { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 600px) {
+  .obj-grid-section { grid-template-columns: 1fr; }
+}
