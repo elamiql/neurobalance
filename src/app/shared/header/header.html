@@ -1,26 +1,27 @@
 <div class="topbar">
-  <a href="mailto:neurobalanceqhue@gmail.com" class="topbar-contact">
-    <i class="fas fa-envelope"></i>
-    neurobalanceqhue@gmail.com
-  </a>
-  <div class="topbar-social">
-    <a href="https://www.facebook.com/share/1F5poZHFhz/" aria-label="Facebook" target="_blank"
-      ><i class="fab fa-facebook-f"></i
-    ></a>
-    <a href="https://www.instagram.com/neurobalanceqhue" aria-label="Instagram" target="_blank"
-      ><i class="fab fa-instagram"></i
-    ></a>
-
-    <a
-      href="https://wa.me/56921811753"
-      class="topbar-contact"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <i class="fab fa-whatsapp"></i>
-      +56 9 2181 1753
+  @if (datosOng()) {
+    <a [href]="'mailto:' + datosOng().contacto.email" class="topbar-contact">
+      <i class="fas fa-envelope"></i>
+      {{ datosOng().contacto.email }}
     </a>
-  </div>
+    <div class="topbar-social">
+      <a [href]="datosOng().redes.facebook" aria-label="Facebook" target="_blank">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a [href]="datosOng().redes.instagram" aria-label="Instagram" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a
+        [href]="'https://wa.me/' + datosOng().contacto.telefono"
+        class="topbar-contact"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="fab fa-whatsapp"></i>
+        {{ datosOng().contacto.telefonoDisplay }}
+      </a>
+    </div>
+  }
 </div>
 
 <header>

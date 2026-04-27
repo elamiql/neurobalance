@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
-import { NavegacionService } from '../../navegacion';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { RouterLinkWithHref } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-header',
@@ -11,11 +10,16 @@ import { RouterLinkWithHref } from '@angular/router';
   templateUrl: './header.html',
   styleUrl: './header.css'
 })
-export class Header {
-  menuAbierto: boolean = false;
-  subMenuAbierto: boolean = false;
+export class Header implements OnInit {
+  private http = inject(HttpClient);
+  datosOng = signal<any>(null);
 
-  constructor(public navService: NavegacionService) {}
+  menuAbierto = false;
+  subMenuAbierto = false;
+
+  ngOnInit(): void {
+    this.http.get('/datos-ong.json').subscribe(res => this.datosOng.set(res));
+  }
 
   toggleMenu() {
     this.menuAbierto = !this.menuAbierto;
@@ -26,14 +30,8 @@ export class Header {
     this.subMenuAbierto = !this.subMenuAbierto;
   }
 
-  navegar(seccion: string) {
-    this.navService.cambiarSeccion(seccion);
+  cerrarMenus() {
     this.menuAbierto = false;
     this.subMenuAbierto = false;
   }
-
-  cerrarMenus() {
-  this.menuAbierto = false;
-  this.subMenuAbierto = false;
-}
 }
