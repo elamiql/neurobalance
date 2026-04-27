@@ -41,8 +41,8 @@
       <li><a routerLink="/objetivos">Objetivos</a></li>
 
       <li class="dropdown">
-        <span>Nosotros</span>
-        <ul class="submenu">
+        <span (click)="toggleSubMenu($event)">Nosotros ▾</span>
+        <ul class="submenu" [class.show]="subMenuAbierto">
           <li><a routerLink="/nosotros" fragment="mision" (click)="cerrarMenus()">Misión</a></li>
           <li><a routerLink="/nosotros" fragment="vision" (click)="cerrarMenus()">Visión</a></li>
           <li>

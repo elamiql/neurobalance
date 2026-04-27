@@ -207,8 +207,28 @@ nav ul .submenu li a {
 }
 
 @media (max-width: 768px) {
-  .topbar { 
-    justify-content: center;
-    gap: 1rem;
+  nav ul .submenu {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    background-color: #f9f9f9;
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+    transform: none;
+    transition: opacity 0.2s ease, max-height 0.3s ease, visibility 0.2s;
+  }
+
+  nav ul .submenu.show {
+    opacity: 1;
+    visibility: visible;
+    max-height: 200px;
+  }
+
+  .dropdown:hover .submenu {
+    opacity: 0;
+    visibility: hidden;
+    transform: none;
   }
 }
