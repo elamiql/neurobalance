@@ -18,10 +18,10 @@
             cercano.
           </p>
           <div class="hero-actions">
-            <button class="btn-primary" (click)="navService.cambiarSeccion('actividades')">
+            <button class="btn-primary" (click)="navService.scrollAQuienesSomos()">
               Conoce nuestras actividades
             </button>
-            <button class="btn-ghost" (click)="navService.cambiarSeccion('mision')">
+            <button class="btn-ghost" (click)="navService.scrollAQuienesSomos()">
               Quiénes somos
             </button>
           </div>
@@ -35,13 +35,103 @@
         </div>
       </section>
 
-      <!-- INTRO -->
-      <section class="seccion intro-text">
-        <h2>Neuro Balance</h2>
-        <p>
-          Su principal objetivo es abordar y mejorar problemas sociales, humanitarios y
-          medioambientales.
-        </p>
+      <!-- QUIÉNES SOMOS (scroll dentro de inicio) -->
+      <section class="quienes-somos" id="quienes-somos">
+        <div class="qs-inner">
+          <!-- Columna izquierda: texto principal -->
+          <div class="qs-texto">
+            <span class="etiqueta">Sobre nosotros</span>
+            <h2 class="qs-titulo">¿Quiénes<br /><em>somos?</em></h2>
+            <p class="qs-parrafo">
+              Somos un proyecto en desarrollo de ONG, pionero en la comuna de Quirihue, creado a
+              partir de la necesidad en salud mental que pesquisamos al ingresar a la red del
+              servicio de salud pública.
+            </p>
+            <p class="qs-parrafo">
+              Nuestro foco es prestar apoyo desde un enfoque comunitario con paradigmas
+              biopsicosociales, priorizando a niños, niñas y adolescentes neurodivergentes y
+              neurotípicos, abriendo paso a toda la comunidad de manera paulatina.
+            </p>
+          </div>
+
+          <!-- Columna derecha: misión + visión como cards -->
+          <div class="qs-cards">
+            <div class="qs-card">
+              <div class="qs-card-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <circle cx="12" cy="12" r="3" />
+                  <line x1="12" y1="2" x2="12" y2="5" />
+                  <line x1="12" y1="19" x2="12" y2="22" />
+                  <line x1="2" y1="12" x2="5" y2="12" />
+                  <line x1="19" y1="12" x2="22" y2="12" />
+                </svg>
+              </div>
+              <h3>Nuestra Misión</h3>
+              <p>{{ datosOng().mision }}</p>
+            </div>
+
+            <div class="qs-card">
+              <div class="qs-card-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              </div>
+              <h3>Nuestra Visión</h3>
+              <p>{{ datosOng().vision }}</p>
+            </div>
+
+            <div class="qs-card qs-card--valores">
+              <div class="qs-card-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                  />
+                </svg>
+              </div>
+              <h3>Nuestros Valores</h3>
+              <ul class="qs-valores">
+                <li>Calidad</li>
+                <li>Compromiso</li>
+                <li>Honestidad</li>
+                <li>Trabajo en equipo</li>
+                <li>Responsabilidad</li>
+                <li>Vocación de servicio</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
 

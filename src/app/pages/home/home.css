@@ -10,7 +10,7 @@
 }
 
 /* Fondo: gradiente con los colores de la ONG.
-   Cuando tengas foto real, reemplaza el background del .hero-bg por:
+   Cuando tenga foto real, reemplazar el background del .hero-bg por:
    background: url('ruta/foto.jpg') center/cover no-repeat;            */
 .hero-bg {
   position: absolute;
@@ -180,5 +180,136 @@
   .btn-ghost {
     width: 100%;
     text-align: center;
+  }
+}
+
+/* ─── QUIÉNES SOMOS ─────────────────────────────────────────────────── */
+
+.quienes-somos {
+  background-color: #ffffff;
+  padding: 5rem 5%;
+}
+
+.qs-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Columna izquierda */
+.qs-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.qs-titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #3C3C3B;
+  margin: 0;
+}
+
+.qs-titulo em {
+  font-style: italic;
+  color: #D93690;
+}
+
+.qs-parrafo {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #555;
+  margin: 0;
+}
+
+/* Columna derecha: cards */
+.qs-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.qs-card {
+  background: #fafafa;
+  border: 1px solid #f0f0f0;
+  border-left: 4px solid #D93690;
+  border-radius: 10px;
+  padding: 1.5rem 1.5rem 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.qs-card:hover {
+  box-shadow: 0 6px 24px rgba(217, 54, 144, 0.1);
+  transform: translateY(-2px);
+}
+
+.qs-card-icon {
+  color: #D93690;
+  display: flex;
+  align-items: center;
+}
+
+.qs-card h3 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #3C3C3B;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.qs-card p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #666;
+  margin: 0;
+}
+
+/* Card de valores */
+.qs-card--valores {
+  border-left-color: #90183E;
+}
+
+.qs-valores {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.qs-valores li {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #90183E;
+  background: rgba(144, 24, 62, 0.07);
+  border-radius: 100px;
+  padding: 0.25rem 0.75rem;
+}
+
+/* ─── RESPONSIVE ────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .qs-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .quienes-somos {
+    padding: 3.5rem 5%;
   }
 }

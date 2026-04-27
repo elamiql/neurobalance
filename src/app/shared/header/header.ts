@@ -25,7 +25,7 @@ export class Header {
   }
 
   navegar(seccion: string) {
-    this.navService.cambiarSeccion(seccion);
+    this.navService.scrollAQuienesSomos();
     this.menuAbierto = false; 
     this.subMenuAbierto = false;
   }

@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class NavegacionService {
   seccionActiva: string = 'inicio';
 
-  cambiarSeccion(seccion: string) {
-    this.seccionActiva = seccion;
-  }
+scrollAQuienesSomos() {
+  document.getElementById('quienes-somos')?.scrollIntoView({ behavior: 'smooth' });
+}
 }
