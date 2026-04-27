@@ -1,0 +1,132 @@
+.nosotros-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 5%;
+}
+
+/* ── Secciones ── */
+.nos-section {
+  padding: 4rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.nos-section--alt {
+  background: transparent;
+}
+
+.nos-section:last-child {
+  border-bottom: none;
+}
+
+/* ── Hero de cada sección ── */
+.nos-hero {
+  margin-bottom: 2.5rem;
+}
+
+.nos-hero h1,
+.nos-hero h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #3c3c3b;
+  line-height: 1.15;
+  margin: 0.5rem 0;
+}
+
+.nos-hero h1 em,
+.nos-hero h2 em {
+  font-style: italic;
+  color: #d7388c;
+}
+
+.nos-subtitulo {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.97rem;
+  color: #888;
+  max-width: 560px;
+  line-height: 1.65;
+  margin-top: 0.5rem;
+}
+
+/* ── Statement (Misión / Visión) ── */
+.statement-box {
+  max-width: 760px;
+}
+
+.statement-text {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.85;
+  color: #555;
+  margin: 0;
+  padding-left: 1.5rem;
+  border-left: 4px solid #d7388c;
+}
+
+/* ── Grid de profesionales ── */
+.prof-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.prof-card {
+  background: #ffffff;
+  border: 1px solid #ebebeb;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.prof-card:hover {
+  box-shadow: 0 6px 24px rgba(215, 56, 140, 0.1);
+  transform: translateY(-3px);
+}
+
+.prof-card__foto {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(135deg, #f5e6f0 0%, #ede6f5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prof-card__foto::after {
+  content: '';
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(215, 56, 140, 0.15);
+}
+
+.prof-card__info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.prof-card__nombre-placeholder {
+  height: 14px;
+  border-radius: 4px;
+  background: #ebebeb;
+  width: 70%;
+}
+
+.prof-card__rol-placeholder {
+  height: 11px;
+  border-radius: 4px;
+  background: #f3f3f3;
+  width: 50%;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .prof-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .prof-grid { grid-template-columns: repeat(2, 1fr); }
+  .nos-section { padding: 3rem 0; }
+}

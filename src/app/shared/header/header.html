@@ -41,11 +41,15 @@
       <li><a routerLink="/objetivos">Objetivos</a></li>
 
       <li class="dropdown">
-        <span (click)="toggleSubMenu($event)" style="cursor: pointer">Nosotros ▾</span>
-        <ul class="submenu" [class.show]="subMenuAbierto">
-          <li><a (click)="navegar('mision')">Misión</a></li>
-          <li><a (click)="navegar('vision')">Visión</a></li>
-          <li><a (click)="navegar('profesionales')">Profesionales</a></li>
+        <span>Nosotros</span>
+        <ul class="submenu">
+          <li><a routerLink="/nosotros" fragment="mision" (click)="cerrarMenus()">Misión</a></li>
+          <li><a routerLink="/nosotros" fragment="vision" (click)="cerrarMenus()">Visión</a></li>
+          <li>
+            <a routerLink="/nosotros" fragment="profesionales" (click)="cerrarMenus()"
+              >Profesionales</a
+            >
+          </li>
         </ul>
       </li>
     </ul>

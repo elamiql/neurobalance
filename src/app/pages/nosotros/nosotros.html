@@ -1,1 +1,48 @@
-<p>nosotros works!</p>
+<main class="nosotros-page">
+  @if (datosOng()) {
+    <!-- MISIÓN -->
+    <section class="nos-section" id="mision">
+      <div class="nos-hero">
+        <span class="etiqueta">Propósito</span>
+        <h1>Nuestra <em>Misión</em></h1>
+      </div>
+      <div class="statement-box">
+        <p class="statement-text">{{ datosOng().mision }}</p>
+      </div>
+    </section>
+
+    <!-- VISIÓN -->
+    <section class="nos-section nos-section--alt" id="vision">
+      <div class="nos-hero">
+        <span class="etiqueta">Futuro</span>
+        <h2>Nuestra <em>Visión</em></h2>
+      </div>
+      <div class="statement-box">
+        <p class="statement-text">{{ datosOng().vision }}</p>
+      </div>
+    </section>
+
+    <!-- PROFESIONALES -->
+    <section class="nos-section" id="profesionales">
+      <div class="nos-hero">
+        <span class="etiqueta">Equipo</span>
+        <h2>Nuestros <em>Profesionales</em></h2>
+        <p class="nos-subtitulo">Próximamente conocerás al equipo detrás de Neuro Balance.</p>
+      </div>
+
+      <div class="prof-grid">
+        @for (item of [1, 2, 3, 4]; track $index) {
+          <div class="prof-card">
+            <div class="prof-card__foto"></div>
+            <div class="prof-card__info">
+              <div class="prof-card__nombre-placeholder"></div>
+              <div class="prof-card__rol-placeholder"></div>
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+  } @else {
+    <p>Cargando...</p>
+  }
+</main>

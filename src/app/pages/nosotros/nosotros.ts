@@ -1,9 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-nosotros',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './nosotros.html',
   styleUrl: './nosotros.css',
 })
-export class Nosotros {}
+export class Nosotros implements OnInit {
+  private http = inject(HttpClient);
+  datosOng = signal<any>(null);
+
+  ngOnInit(): void {
+    this.http.get('/datos-ong.json').subscribe(res => this.datosOng.set(res));
+  }
+}

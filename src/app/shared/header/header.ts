@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavegacionService } from '../../navegacion';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { RouterLinkWithHref } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -30,4 +31,9 @@ export class Header {
     this.menuAbierto = false;
     this.subMenuAbierto = false;
   }
+
+  cerrarMenus() {
+  this.menuAbierto = false;
+  this.subMenuAbierto = false;
+}
 }

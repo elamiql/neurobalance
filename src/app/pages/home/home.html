@@ -1,203 +1,117 @@
 <main>
   @if (datosOng()) {
-    <div id="inicio" [class.oculto]="navService.seccionActiva !== 'inicio'">
-      <!-- HERO -->
-      <section class="hero">
-        <div class="hero-bg">
-          <!-- Capa de color/gradiente de fondo (reemplazar por imagen real después) -->
-          <div class="hero-overlay"></div>
-        </div>
-
-        <div class="hero-content">
-          <h1 class="hero-title">
-            Salud mental<br />
-            <em>para todos.</em>
-          </h1>
-          <p class="hero-subtitle">
-            Apoyamos el bienestar de nuestra comunidad desde un enfoque comunitario, humano y
-            cercano.
-          </p>
-          <div class="hero-actions">
-            <button class="btn-primary" routerLink="/actividades">
-              Conoce nuestras actividades
-            </button>
-            <button class="btn-ghost" (click)="navService.scrollAQuienesSomos()">
-              Quiénes somos
-            </button>
-          </div>
-        </div>
-
-        <!-- Decoración wave inferior -->
-        <div class="hero-wave">
-          <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#ffffff" />
-          </svg>
-        </div>
-      </section>
-
-      <!-- QUIÉNES SOMOS (scroll dentro de inicio) -->
-      <section class="quienes-somos" id="quienes-somos">
-        <div class="qs-inner">
-          <!-- Columna izquierda: texto principal -->
-          <div class="qs-texto">
-            <span class="etiqueta">Sobre nosotros</span>
-            <h2 class="qs-titulo">¿Quiénes<br /><em>somos?</em></h2>
-            <p class="qs-parrafo">{{ datosOng().descripcion }}</p>
-            <p class="qs-parrafo">{{ datosOng().descripcion2 }}</p>
-          </div>
-
-          <!-- Columna derecha: misión + visión como cards -->
-          <div class="qs-cards">
-            <div class="qs-card">
-              <div class="qs-card-icon">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <circle cx="12" cy="12" r="10" />
-                  <circle cx="12" cy="12" r="3" />
-                  <line x1="12" y1="2" x2="12" y2="5" />
-                  <line x1="12" y1="19" x2="12" y2="22" />
-                  <line x1="2" y1="12" x2="5" y2="12" />
-                  <line x1="19" y1="12" x2="22" y2="12" />
-                </svg>
-              </div>
-              <h3>Nuestra Misión</h3>
-              <p>{{ datosOng().mision }}</p>
-            </div>
-
-            <div class="qs-card">
-              <div class="qs-card-icon">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                  <circle cx="12" cy="12" r="3" />
-                </svg>
-              </div>
-              <h3>Nuestra Visión</h3>
-              <p>{{ datosOng().vision }}</p>
-            </div>
-
-            <div class="qs-card qs-card--valores">
-              <div class="qs-card-icon">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                  />
-                </svg>
-              </div>
-              <h3>Nuestros Valores</h3>
-              <ul class="qs-valores">
-                @for (valor of datosOng().valores; track $index) {
-                  <li>{{ valor }}</li>
-                }
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- ACTIVIDADES -->
-    <section
-      id="actividades"
-      class="seccion minimal-section"
-      [class.oculto]="navService.seccionActiva !== 'actividades'"
-    >
-      <div class="header-seccion">
-        <span class="etiqueta">Servicios</span>
-        <h2>Actividades que desarrollamos</h2>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg">
+        <div class="hero-overlay"></div>
       </div>
 
-      <ul class="lista-minimal">
-        @for (actividad of datosOng().actividades; track $index) {
-          <li>{{ actividad }}</li>
-        }
-      </ul>
-    </section>
-
-    <!-- OBJETIVOS -->
-    <section
-      id="objetivos"
-      class="seccion minimal-section"
-      [class.oculto]="navService.seccionActiva !== 'objetivos'"
-    >
-      <div class="header-seccion">
-        <span class="etiqueta">Metas</span>
-        <h2>Nuestros Objetivos de Desarrollo</h2>
-      </div>
-
-      <ul class="lista-minimal">
-        @for (objetivo of datosOng().objetivos; track $index) {
-          <li>{{ objetivo }}</li>
-        }
-      </ul>
-    </section>
-
-    <!-- MISIÓN -->
-    <section
-      id="mision"
-      class="seccion minimal-section"
-      [class.oculto]="navService.seccionActiva !== 'mision'"
-    >
-      <div class="statement-box">
-        <span class="etiqueta">Propósito</span>
-        <h2>Misión</h2>
-        <p class="statement-text">{{ datosOng().mision }}</p>
-      </div>
-    </section>
-
-    <!-- VISIÓN -->
-    <section
-      id="vision"
-      class="seccion minimal-section"
-      [class.oculto]="navService.seccionActiva !== 'vision'"
-    >
-      <div class="statement-box">
-        <span class="etiqueta">Futuro</span>
-        <h2>Visión</h2>
-        <p class="statement-text">{{ datosOng().vision }}</p>
-      </div>
-    </section>
-
-    <!-- PROFESIONALES -->
-    <section
-      id="profesionales"
-      class="seccion minimal-section"
-      [class.oculto]="navService.seccionActiva !== 'profesionales'"
-    >
-      <div class="header-seccion">
-        <span class="etiqueta">Equipo</span>
-        <h2>Nuestros Profesionales</h2>
-        <p class="txt-muted" style="margin-top: 20px">
-          Próximamente conocerás al equipo detrás de Neuro Balance...
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Salud mental<br />
+          <em>para todos.</em>
+        </h1>
+        <p class="hero-subtitle">
+          Apoyamos el bienestar de nuestra comunidad desde un enfoque comunitario, humano y cercano.
         </p>
+        <div class="hero-actions">
+          <button class="btn-primary" routerLink="/actividades">Conoce nuestras actividades</button>
+          <button class="btn-ghost" (click)="navService.scrollAQuienesSomos()">
+            Quiénes somos
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-wave">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#ffffff" />
+        </svg>
+      </div>
+    </section>
+
+    <!-- QUIÉNES SOMOS -->
+    <section class="quienes-somos" id="quienes-somos">
+      <div class="qs-inner">
+        <div class="qs-texto">
+          <span class="etiqueta">Sobre nosotros</span>
+          <h2 class="qs-titulo">¿Quiénes<br /><em>somos?</em></h2>
+          <p class="qs-parrafo">{{ datosOng().descripcion }}</p>
+          <p class="qs-parrafo">{{ datosOng().descripcion2 }}</p>
+        </div>
+
+        <div class="qs-cards">
+          <div class="qs-card">
+            <div class="qs-card-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <circle cx="12" cy="12" r="3" />
+                <line x1="12" y1="2" x2="12" y2="5" />
+                <line x1="12" y1="19" x2="12" y2="22" />
+                <line x1="2" y1="12" x2="5" y2="12" />
+                <line x1="19" y1="12" x2="22" y2="12" />
+              </svg>
+            </div>
+            <h3>Nuestra Misión</h3>
+            <p>{{ datosOng().mision }}</p>
+          </div>
+
+          <div class="qs-card">
+            <div class="qs-card-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </div>
+            <h3>Nuestra Visión</h3>
+            <p>{{ datosOng().vision }}</p>
+          </div>
+
+          <div class="qs-card qs-card--valores">
+            <div class="qs-card-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                />
+              </svg>
+            </div>
+            <h3>Nuestros Valores</h3>
+            <ul class="qs-valores">
+              @for (valor of datosOng().valores; track $index) {
+                <li>{{ valor }}</li>
+              }
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   } @else {
