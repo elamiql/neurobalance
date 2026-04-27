@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { NavegacionService } from '../../navegacion';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './header.html',
   styleUrl: './header.css'
 })
@@ -25,8 +26,8 @@ export class Header {
   }
 
   navegar(seccion: string) {
-    this.navService.scrollAQuienesSomos();
-    this.menuAbierto = false; 
+    this.navService.cambiarSeccion(seccion);
+    this.menuAbierto = false;
     this.subMenuAbierto = false;
   }
 }

@@ -1,0 +1,55 @@
+<main class="actividades-page">
+  @if (datosOng()) {
+    <section class="act-hero">
+      <span class="etiqueta">Servicios</span>
+      <h1>Actividades que <em>desarrollamos</em></h1>
+      <p>
+        Organizamos nuestra oferta en tres líneas de acción para acompañar a la comunidad de manera
+        integral.
+      </p>
+    </section>
+
+    <section class="act-grid-section">
+      <div class="serv-cat">
+        <div class="serv-cat__header">
+          <div class="serv-cat__icon"><i class="fas fa-user-heart"></i></div>
+          <h3>Atención Terapéutica</h3>
+        </div>
+        <ul>
+          <li>Intervenciones terapéuticas individuales</li>
+          <li>Intervenciones terapéuticas grupales</li>
+          <li>Charlas informativas sobre temas atingentes a la ONG</li>
+          <li>Operativos a bajo costo</li>
+          <li>Jornadas de trabajo voluntario</li>
+        </ul>
+      </div>
+
+      <div class="serv-cat">
+        <div class="serv-cat__header">
+          <div class="serv-cat__icon"><i class="fas fa-people-group"></i></div>
+          <h3>Talleres Grupales</h3>
+        </div>
+        <ul>
+          <li>Talleres para desarrollar habilidades sociales, manipulativas y del entorno</li>
+          <li>Talleres para generar vínculos y sentido de pertenencia con la comunidad</li>
+          <li>Jornadas comunitarias para conocer el centro y construir entornos seguros</li>
+        </ul>
+      </div>
+
+      <div class="serv-cat">
+        <div class="serv-cat__header">
+          <div class="serv-cat__icon"><i class="fas fa-handshake"></i></div>
+          <h3>Gestión Colaborativa</h3>
+        </div>
+        <ul>
+          <li>Con establecimientos educacionales de la zona</li>
+          <li>Con establecimientos municipales de la zona</li>
+          <li>Con establecimientos de salud de la zona</li>
+          <li>Con juntas de vecinos, centros comunitarios y otros</li>
+        </ul>
+      </div>
+    </section>
+  } @else {
+    <p>Cargando...</p>
+  }
+</main>

@@ -24,17 +24,21 @@
 </div>
 
 <header>
-  <img src="logo/Logo Neuro Balance RRSS - Sin Fondo 3x.png" alt="Logo ONG" />
-
+  <img
+    routerLink="/"
+    src="logo/Logo Neuro Balance RRSS - Sin Fondo 3x.png"
+    alt="Logo ONG"
+    style="cursor: pointer"
+  />
   <button class="menu-toggle" [class.active]="menuAbierto" (click)="toggleMenu()">
     <i class="fas fa-bars"></i>
   </button>
 
   <nav [class.show]="menuAbierto">
     <ul>
-      <li><a (click)="navegar('inicio')">Inicio</a></li>
-      <li><a (click)="navegar('actividades')">Actividades</a></li>
-      <li><a (click)="navegar('objetivos')">Objetivos</a></li>
+      <li><a routerLink="/">Inicio</a></li>
+      <li><a routerLink="/actividades">Actividades</a></li>
+      <li><a routerLink="/objetivos">Objetivos</a></li>
 
       <li class="dropdown">
         <span (click)="toggleSubMenu($event)" style="cursor: pointer">Nosotros ▾</span>
