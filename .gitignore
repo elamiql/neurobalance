@@ -44,6 +44,3 @@ __screenshots__/
 Thumbs.db
 Neuro Balance.zip
 /Neuro Balance
-
-# Environment files
-src/environments/environment.ts
