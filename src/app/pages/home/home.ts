@@ -1,42 +1,24 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
-import { NavegacionService } from '../../navegacion';
-import { CommonModule } from '@angular/common';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router, RouterLink } from '@angular/router';
-
+import { RouterLink } from '@angular/router';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { NavegacionService } from '../../navegacion';
+import { DatosOng } from './models/datos-ong.interface';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [RouterLink],
   templateUrl: './home.html',
-  styleUrl: './home.css'
+  styleUrl: './home.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class Home implements OnInit{
+export class Home {
   private http = inject(HttpClient);
   public navService = inject(NavegacionService);
 
-  datosOng = signal<any>(null);
-
-slidesCarrusel = signal([
-    {
-      imagen: 'fotos/foto1.jpg',
-    },
-    {
-      imagen: 'fotos/foto2.jpg',
-    }
-  ]);
-
-  currentSlide = signal(0);
-
-  nextSlide() {
-    this.currentSlide.update(current => current === this.slidesCarrusel().length - 1 ? 0 : current + 1);
-  }
-
-  prevSlide() {
-    this.currentSlide.update(current => current === 0 ? this.slidesCarrusel().length - 1 : current - 1);
-  }
-  ngOnInit(): void {
-    this.http.get('/datos-ong.json').subscribe(res => {this.datosOng.set(res)});
-  }
+  datosOng = toSignal(
+    this.http.get<DatosOng>('/datos-ong.json'),
+    { initialValue: null }
+  );
 }

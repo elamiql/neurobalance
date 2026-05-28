@@ -1,5 +1,5 @@
 <main>
-  @if (datosOng()) {
+  @if (datosOng(); as datos) {
     <!-- HERO -->
     <section class="hero">
       <div class="hero-bg">
@@ -23,7 +23,12 @@
       </div>
 
       <div class="hero-wave">
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 1440 80"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#ffffff" />
         </svg>
       </div>
@@ -35,14 +40,15 @@
         <div class="qs-texto">
           <span class="etiqueta">Sobre nosotros</span>
           <h2 class="qs-titulo">¿Quiénes<br /><em>somos?</em></h2>
-          <p class="qs-parrafo">{{ datosOng().descripcion }}</p>
-          <p class="qs-parrafo">{{ datosOng().descripcion2 }}</p>
+          <p class="qs-parrafo">{{ datos.descripcion }}</p>
+          <p class="qs-parrafo">{{ datos.descripcion2 }}</p>
         </div>
 
         <div class="qs-cards">
           <div class="qs-card">
             <div class="qs-card-icon">
               <svg
+                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 width="22"
                 height="22"
@@ -62,12 +68,13 @@
               </svg>
             </div>
             <h3>Nuestra Misión</h3>
-            <p>{{ datosOng().mision }}</p>
+            <p>{{ datos.mision }}</p>
           </div>
 
           <div class="qs-card">
             <div class="qs-card-icon">
               <svg
+                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 width="22"
                 height="22"
@@ -83,12 +90,13 @@
               </svg>
             </div>
             <h3>Nuestra Visión</h3>
-            <p>{{ datosOng().vision }}</p>
+            <p>{{ datos.vision }}</p>
           </div>
 
           <div class="qs-card qs-card--valores">
             <div class="qs-card-icon">
               <svg
+                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 width="22"
                 height="22"
@@ -106,7 +114,7 @@
             </div>
             <h3>Nuestros Valores</h3>
             <ul class="qs-valores">
-              @for (valor of datosOng().valores; track $index) {
+              @for (valor of datos.valores; track $index) {
                 <li>{{ valor }}</li>
               }
             </ul>
