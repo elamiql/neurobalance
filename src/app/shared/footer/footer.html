@@ -1,5 +1,5 @@
 <footer>
-  @if (datosOng()) {
+  @if (datosOng(); as datos) {
     <div class="footer-main">
       <!-- Logo + tagline -->
       <div class="footer-col footer-brand">
@@ -8,7 +8,7 @@
           alt="Neuro Balance"
           class="footer-logo"
         />
-        <p class="footer-tagline">{{ datosOng().taglineFooter }}</p>
+        <p class="footer-tagline">{{ datos.taglineFooter }}</p>
       </div>
 
       <!-- Links -->
@@ -30,22 +30,20 @@
         <ul class="footer-contact">
           <li>
             <i class="fas fa-map-marker-alt"></i>
-            {{ datosOng().contacto.direccion }}
+            {{ datos.contacto.direccion }}
           </li>
           <li>
             <i class="fas fa-envelope"></i>
-            <a [href]="'mailto:' + datosOng().contacto.email">{{ datosOng().contacto.email }}</a>
+            <a [href]="'mailto:' + datos.contacto.email">{{ datos.contacto.email }}</a>
           </li>
           <li>
             <i class="fas fa-phone"></i>
-            <a [href]="'tel:' + datosOng().contacto.telefono">{{
-              datosOng().contacto.telefonoDisplay
-            }}</a>
+            <a [href]="'tel:' + datos.contacto.telefono">{{ datos.contacto.telefonoDisplay }}</a>
           </li>
         </ul>
         <div class="footer-social">
           <a
-            [href]="datosOng().redes.instagram"
+            [href]="datos.redes.instagram"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
@@ -53,7 +51,7 @@
             <i class="fab fa-instagram"></i>
           </a>
           <a
-            [href]="datosOng().redes.facebook"
+            [href]="datos.redes.facebook"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
@@ -61,7 +59,7 @@
             <i class="fab fa-facebook-f"></i>
           </a>
           <a
-            [href]="datosOng().redes.tiktok"
+            [href]="datos.redes.tiktok"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="TikTok"

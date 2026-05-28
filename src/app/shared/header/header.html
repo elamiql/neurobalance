@@ -1,27 +1,27 @@
 <div class="topbar">
-  @if (datosOng()) {
-    <a [href]="'mailto:' + datosOng().contacto.email" class="topbar-contact">
+  @if (datosOng(); as datos) {
+    <a [href]="'mailto:' + datos.contacto.email" class="topbar-contact">
       <i class="fas fa-envelope"></i>
-      {{ datosOng().contacto.email }}
+      {{ datos.contacto.email }}
     </a>
     <div class="topbar-social">
-      <a [href]="datosOng().redes.facebook" aria-label="Facebook" target="_blank">
+      <a [href]="datos.redes.facebook" aria-label="Facebook" target="_blank">
         <i class="fab fa-facebook-f"></i>
       </a>
-      <a [href]="datosOng().redes.instagram" aria-label="Instagram" target="_blank">
+      <a [href]="datos.redes.instagram" aria-label="Instagram" target="_blank">
         <i class="fab fa-instagram"></i>
       </a>
-      <a [href]="datosOng().redes.tiktok" aria-label="TikTok" target="_blank">
+      <a [href]="datos.redes.tiktok" aria-label="TikTok" target="_blank">
         <i class="fab fa-tiktok"></i>
       </a>
       <a
-        [href]="'https://wa.me/' + datosOng().contacto.telefono"
+        [href]="'https://wa.me/' + datos.contacto.telefono"
         class="topbar-contact"
         target="_blank"
         rel="noopener noreferrer"
       >
         <i class="fab fa-whatsapp"></i>
-        {{ datosOng().contacto.telefonoDisplay }}
+        {{ datos.contacto.telefonoDisplay }}
       </a>
     </div>
   }
