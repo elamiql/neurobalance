@@ -24,7 +24,14 @@
     "Disminuir ambientes poco favorables para el bienestar de la salud mental"
   ],
 
-  "valores": ["Calidad", "Compromiso", "Honestidad", "Trabajo en equipo", "Responsabilidad", "Vocación de servicio"],
+  "valores": [
+    "Calidad",
+    "Compromiso",
+    "Honestidad",
+    "Trabajo en equipo",
+    "Responsabilidad",
+    "Vocación de servicio"
+  ],
 
   "taglineFooter": "Salud mental comunitaria para Quirihue y su gente.",
   "contacto": {
@@ -35,39 +42,40 @@
   },
   "redes": {
     "instagram": "https://www.instagram.com/neurobalanceqhue?igsh=MXNucTd2dTVpZmFwOQ==",
-    "facebook": "https://www.facebook.com/share/1F5poZHFhz/"
+    "facebook": "https://www.facebook.com/share/1F5poZHFhz/",
+    "tiktok": "https://www.tiktok.com/@neurobalanceqhue?is_from_webapp=1&sender_device=pc"
   },
 
   "servicios": [
-  {
-    "categoria": "Atención Terapéutica",
-    "icono": "fas fa-user-heart",
-    "items": [
-      "Intervenciones terapéuticas individuales",
-      "Intervenciones terapéuticas grupales",
-      "Charlas informativas sobre temas atingentes a la ONG",
-      "Operativos a bajo costo",
-      "Jornadas de trabajo voluntario"
-    ]
-  },
-  {
-    "categoria": "Talleres Grupales",
-    "icono": "fas fa-people-group",
-    "items": [
-      "Talleres para desarrollar habilidades sociales, manipulativas y del entorno",
-      "Talleres para generar vínculos y sentido de pertenencia con la comunidad",
-      "Jornadas comunitarias para conocer el centro y construir entornos seguros"
-    ]
-  },
-  {
-    "categoria": "Gestión Colaborativa",
-    "icono": "fas fa-handshake",
-    "items": [
-      "Con establecimientos educacionales de la zona",
-      "Con establecimientos municipales de la zona",
-      "Con establecimientos de salud de la zona",
-      "Con juntas de vecinos, centros comunitarios y otros"
-    ]
-  }
-]
+    {
+      "categoria": "Atención Terapéutica",
+      "icono": "fas fa-user-heart",
+      "items": [
+        "Intervenciones terapéuticas individuales",
+        "Intervenciones terapéuticas grupales",
+        "Charlas informativas sobre temas atingentes a la ONG",
+        "Operativos a bajo costo",
+        "Jornadas de trabajo voluntario"
+      ]
+    },
+    {
+      "categoria": "Talleres Grupales",
+      "icono": "fas fa-people-group",
+      "items": [
+        "Talleres para desarrollar habilidades sociales, manipulativas y del entorno",
+        "Talleres para generar vínculos y sentido de pertenencia con la comunidad",
+        "Jornadas comunitarias para conocer el centro y construir entornos seguros"
+      ]
+    },
+    {
+      "categoria": "Gestión Colaborativa",
+      "icono": "fas fa-handshake",
+      "items": [
+        "Con establecimientos educacionales de la zona",
+        "Con establecimientos municipales de la zona",
+        "Con establecimientos de salud de la zona",
+        "Con juntas de vecinos, centros comunitarios y otros"
+      ]
+    }
+  ]
 }
