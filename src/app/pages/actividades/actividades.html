@@ -1,5 +1,5 @@
 <main class="actividades-page">
-  @if (datosOng()) {
+  @if (datosOng(); as datos) {
     <section class="act-hero">
       <span class="etiqueta">Servicios</span>
       <h1>Actividades que <em>desarrollamos</em></h1>
@@ -10,7 +10,7 @@
     </section>
 
     <section class="act-grid-section">
-      @for (servicio of datosOng().servicios; track $index) {
+      @for (servicio of datos.servicios; track $index) {
         <div class="serv-cat">
           <div class="serv-cat__header">
             <div class="serv-cat__icon"><i [class]="servicio.icono"></i></div>

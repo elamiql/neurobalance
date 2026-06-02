@@ -1,5 +1,5 @@
 <main class="objetivos-page">
-  @if (datosOng()) {
+  @if (datosOng(); as datos) {
     <section class="obj-hero">
       <span class="etiqueta">Metas</span>
       <h1>Nuestros <em>Objetivos</em></h1>
@@ -10,7 +10,7 @@
     </section>
 
     <section class="obj-grid-section">
-      @for (objetivo of datosOng().objetivos; track $index) {
+      @for (objetivo of datos.objetivos; track $index) {
         <div class="obj-card">
           <div class="obj-card__num" [class.alt]="$index % 2 !== 0">
             {{ ($index + 1).toString().padStart(2, '0') }}
