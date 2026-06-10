@@ -1,7 +1,4 @@
-/* =========================================
-   ESTILOS BASE (ESCRITORIO)
-   ========================================= */
-
+/*estilos base*/
 header {
     background-color: #ffffff;
     display: flex;
@@ -105,7 +102,6 @@ nav ul .submenu li a {
     color: #A653A0;
 }
 
-/* TOPBAR BASE (Estilos generales para todas las pantallas) */
 .topbar {
   background-color: #D93690;
   color: #ffffff;
@@ -146,9 +142,7 @@ nav ul .submenu li a {
   transform: translateY(-1px);
 }
 
-/* =========================================
-   VISTA MÓVIL (CELULARES)
-   ========================================= */
+/* responsive */
 
 @media (max-width: 768px) {
     
@@ -170,7 +164,7 @@ nav ul .submenu li a {
 
     header img {
         height: 64px;
-        transform: scale(1); /* Resetea la escala en celular para que no se vea desproporcionado */
+        transform: scale(1);
     }
 
     nav {
@@ -216,14 +210,15 @@ nav ul .submenu li a {
         width: 100%;
         box-shadow: none;
         background-color: #f9f9f9;
-        
-        /* Magia para que siempre esté abierto y visible en celular */
         opacity: 1 !important;
         visibility: visible !important;
         display: flex !important;
     }
 
-    /* FIX DEL BUG: Evita que el menú se corte hacia la izquierda en celular */
+    nav ul li span.dropdown-indicator {
+        display: none !important;
+    }
+
     nav ul .submenu,
     nav ul .submenu.show,
     .dropdown:hover .submenu {
@@ -231,7 +226,6 @@ nav ul .submenu li a {
         padding-left: 0; 
     }
 
-    /* Ajustes Topbar para móvil */
     .topbar {
       justify-content: space-between;
       padding: 0.4rem 5%;
