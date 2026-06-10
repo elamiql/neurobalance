@@ -120,6 +120,59 @@
 .serv-cat:nth-child(2) ul li::before { background: #a6539b; }
 .serv-cat:nth-child(3) ul li::before { background: #901826; }
 
+/* ── Banner de Contacto ── */
+.contact-banner {
+  background-color: #d7388c;  /* ← mismo fucsia que las tarjetas */
+  color: #ffffff;
+  text-align: center;
+  padding: 3rem 5%;
+  margin-top: 3rem;
+  border-radius: 16px;
+}
+
+.contact-banner h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  font-style: italic;          /* ← consistente con el h1 de la página */
+  color: #ffffff;
+  margin: 0 0 0.6rem;
+}
+
+.contact-banner p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0 0 1.75rem;
+}
+
+.contact-banner__datos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.contact-banner__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.contact-banner__link:hover {
+  background: rgba(255, 255, 255, 0.28);
+  transform: translateY(-2px);
+}
 /* ── Responsive ── */
 @media (max-width: 900px) {
   .act-grid-section { grid-template-columns: 1fr 1fr; }

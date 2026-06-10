@@ -1,3 +1,7 @@
+/* =========================================
+   ESTILOS BASE (ESCRITORIO)
+   ========================================= */
+
 header {
     background-color: #ffffff;
     display: flex;
@@ -10,9 +14,11 @@ header {
 }
 
 header img {
-    height: 64px;
+    height: 84px;
     width: auto;
     justify-self: start;
+    transform: scale(1.1);
+    transform-origin: left center;
 }
 
 nav ul {
@@ -99,7 +105,53 @@ nav ul .submenu li a {
     color: #A653A0;
 }
 
+/* TOPBAR BASE (Estilos generales para todas las pantallas) */
+.topbar {
+  background-color: #D93690;
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.4rem 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbar-contact {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.topbar-contact:hover { 
+  opacity: 0.8; 
+}
+
+.topbar-social {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.topbar-social a {
+  color: #ffffff;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.topbar-social a:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   VISTA MÓVIL (CELULARES)
+   ========================================= */
+
 @media (max-width: 768px) {
+    
     header {
         display: flex;
         justify-content: center;
@@ -117,12 +169,8 @@ nav ul .submenu li a {
     }
 
     header img {
-        height: 50px;
-    }
-
-    header::after {
-        content: "";
-        grid-column: 3;
+        height: 64px;
+        transform: scale(1); /* Resetea la escala en celular para que no se vea desproporcionado */
     }
 
     nav {
@@ -168,67 +216,46 @@ nav ul .submenu li a {
         width: 100%;
         box-shadow: none;
         background-color: #f9f9f9;
+        
+        /* Magia para que siempre esté abierto y visible en celular */
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: flex !important;
     }
-}
 
-.topbar {
-  background-color: #D93690;
-  color: #ffffff;
-  font-size: 0.78rem;
-  font-weight: 600;
-  padding: 0.4rem 5%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+    /* FIX DEL BUG: Evita que el menú se corte hacia la izquierda en celular */
+    nav ul .submenu,
+    nav ul .submenu.show,
+    .dropdown:hover .submenu {
+        transform: none !important;
+        padding-left: 0; 
+    }
 
-.topbar-contact {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: #ffffff;
-  text-decoration: none;
-  transition: opacity 0.2s;
-}
-.topbar-contact:hover { opacity: 0.8; }
+    /* Ajustes Topbar para móvil */
+    .topbar {
+      justify-content: space-between;
+      padding: 0.4rem 5%;
+    }
 
-.topbar-social {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-.topbar-social a {
-  color: #ffffff;
-  transition: opacity 0.2s, transform 0.2s;
-}
-.topbar-social a:hover {
-  opacity: 0.8;
-  transform: translateY(-1px);
-}
+    .topbar > .topbar-contact {
+      display: none;
+    }
 
-@media (max-width: 768px) {
-  nav ul .submenu {
-    position: static;
-    width: 100%;
-    box-shadow: none;
-    background-color: #f9f9f9;
-    opacity: 0;
-    visibility: hidden;
-    max-height: 0;
-    overflow: hidden;
-    transform: none;
-    transition: opacity 0.2s ease, max-height 0.3s ease, visibility 0.2s;
-  }
+    .topbar-social {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+      gap: 0.75rem;
+    }
 
-  nav ul .submenu.show {
-    opacity: 1;
-    visibility: visible;
-    max-height: 200px;
-  }
+    .topbar-social .topbar-contact {
+      margin-right: auto;
+      font-size: 0.75rem;
+    }
 
-  .dropdown:hover .submenu {
-    opacity: 0;
-    visibility: hidden;
-    transform: none;
-  }
+    .topbar-social a:not(.topbar-contact) {
+      font-size: 0.9rem;
+    }
 }

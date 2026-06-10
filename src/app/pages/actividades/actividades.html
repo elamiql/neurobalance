@@ -24,6 +24,21 @@
         </div>
       }
     </section>
+    <!-- ── Banner de Contacto ── -->
+    <section class="contact-banner">
+      <h2>¡Contáctanos!</h2>
+      <p>¿Necesitas agendar una hora o tienes dudas? Escríbenos, estamos para ayudarte.</p>
+      <div class="contact-banner__datos">
+        <a href="mailto:neurobalanceqihue@gmail.com" class="contact-banner__link">
+          <i class="fas fa-envelope"></i>
+          {{ datos.contacto.email }}
+        </a>
+        <a href="tel:+56921811753" class="contact-banner__link">
+          <i class="fas fa-phone"></i>
+          {{ datos.contacto.telefonoDisplay }}
+        </a>
+      </div>
+    </section>
   } @else {
     <p>Cargando...</p>
   }
