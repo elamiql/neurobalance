@@ -62,8 +62,9 @@
 /* ── Grid de profesionales ── */
 .prof-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 1.5rem;
+  align-items: start;   /* cards no se estiran entre sí */
 }
 
 .prof-card {
@@ -72,6 +73,8 @@
   border-radius: 12px;
   overflow: hidden;
   transition: box-shadow 0.2s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
 }
 
 .prof-card:hover {
@@ -79,7 +82,7 @@
   transform: translateY(-3px);
 }
 
-/* ── Foto (sin ::after) ── */
+/* ── Foto ── */
 .prof-card__foto {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -118,12 +121,14 @@
   color: #d7388c;
   margin: 0;
 }
+
 .prof-card__especialidad {
   font-family: 'Nunito', sans-serif;
   font-size: 0.8rem;
   color: #888;
   margin: 0;
   line-height: 1.4;
+  text-align: justify;
 }
 
 .prof-card__bio {
@@ -132,7 +137,12 @@
   color: #666;
   line-height: 1.6;
   margin: 0.4rem 0 0;
-  text-align: left;
+  text-align: justify;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .prof-card__email {
@@ -151,7 +161,12 @@
 .prof-card__email:hover {
   opacity: 0.75;
 }
+
 /* ── Responsive ── */
 @media (max-width: 600px) {
   .nos-section { padding: 3rem 0; }
+
+  .prof-grid {
+    grid-template-columns: 1fr;
+  }
 }
