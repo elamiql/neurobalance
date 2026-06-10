@@ -10,15 +10,11 @@
   border-bottom: 1px solid #f0f0f0;
 }
 
-.nos-section--alt {
-  background: transparent;
-}
-
 .nos-section:last-child {
   border-bottom: none;
 }
 
-/* ── Hero de cada sección ── */
+/* ── Hero ── */
 .nos-hero {
   margin-bottom: 2.5rem;
 }
@@ -48,7 +44,7 @@
   margin-top: 0.5rem;
 }
 
-/* ── Statement (Misión / Visión) ── */
+/* ── Misión / Visión ── */
 .statement-box {
   max-width: 760px;
 }
@@ -66,7 +62,7 @@
 /* ── Grid de profesionales ── */
 .prof-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1.5rem;
 }
 
@@ -83,50 +79,79 @@
   transform: translateY(-3px);
 }
 
+/* ── Foto (sin ::after) ── */
 .prof-card__foto {
   width: 100%;
   aspect-ratio: 1 / 1;
-  background: linear-gradient(135deg, #f5e6f0 0%, #ede6f5 100%);
+  overflow: hidden;
+}
+
+.prof-card__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+/* ── Info ── */
+.prof-card__info {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  text-align: center;
+}
+
+.prof-card__nombre {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #3c3c3b;
+  margin: 0;
+}
+
+.prof-card__rol {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #d7388c;
+  margin: 0;
+}
+.prof-card__especialidad {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.8rem;
+  color: #888;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.prof-card__bio {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.82rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0.4rem 0 0;
+  text-align: left;
+}
+
+.prof-card__email {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.78rem;
+  color: #d7388c;
+  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+  transition: opacity 0.2s;
 }
 
-.prof-card__foto::after {
-  content: '';
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(215, 56, 140, 0.15);
+.prof-card__email:hover {
+  opacity: 0.75;
 }
-
-.prof-card__info {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.prof-card__nombre-placeholder {
-  height: 14px;
-  border-radius: 4px;
-  background: #ebebeb;
-  width: 70%;
-}
-
-.prof-card__rol-placeholder {
-  height: 11px;
-  border-radius: 4px;
-  background: #f3f3f3;
-  width: 50%;
-}
-
 /* ── Responsive ── */
-@media (max-width: 900px) {
-  .prof-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
 @media (max-width: 600px) {
-  .prof-grid { grid-template-columns: repeat(2, 1fr); }
   .nos-section { padding: 3rem 0; }
 }

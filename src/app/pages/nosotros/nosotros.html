@@ -1,6 +1,5 @@
 <main class="nosotros-page">
   @if (datosOng(); as datos) {
-    <!-- MISIÓN -->
     <section class="nos-section" id="mision">
       <div class="nos-hero">
         <span class="etiqueta">Propósito</span>
@@ -11,8 +10,7 @@
       </div>
     </section>
 
-    <!-- VISIÓN -->
-    <section class="nos-section nos-section--alt" id="vision">
+    <section class="nos-section" id="vision">
       <div class="nos-hero">
         <span class="etiqueta">Futuro</span>
         <h2>Nuestra <em>Visión</em></h2>
@@ -22,21 +20,31 @@
       </div>
     </section>
 
-    <!-- PROFESIONALES -->
     <section class="nos-section" id="profesionales">
       <div class="nos-hero">
         <span class="etiqueta">Equipo</span>
         <h2>Nuestros <em>Profesionales</em></h2>
-        <p class="nos-subtitulo">Próximamente conocerás al equipo detrás de Neuro Balance.</p>
       </div>
-
       <div class="prof-grid">
-        @for (item of [1, 2, 3, 4]; track $index) {
+        @for (prof of datos.profesionales; track prof._key) {
           <div class="prof-card">
-            <div class="prof-card__foto"></div>
+            <div class="prof-card__foto">
+              <img [src]="prof.foto" [alt]="'Foto de ' + prof.nombre" />
+            </div>
             <div class="prof-card__info">
-              <div class="prof-card__nombre-placeholder"></div>
-              <div class="prof-card__rol-placeholder"></div>
+              <h3 class="prof-card__nombre">{{ prof.nombre }}</h3>
+              <p class="prof-card__rol">{{ prof.rol }}</p>
+              @if (prof.especialidad) {
+                <p class="prof-card__especialidad">{{ prof.especialidad }}</p>
+              }
+              @if (prof.bio) {
+                <p class="prof-card__bio">{{ prof.bio }}</p>
+              }
+              @if (prof.email) {
+                <a [href]="'mailto:' + prof.email" class="prof-card__email">
+                  <i class="fas fa-envelope"></i> {{ prof.email }}
+                </a>
+              }
             </div>
           </div>
         }

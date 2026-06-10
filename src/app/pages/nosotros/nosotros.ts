@@ -1,4 +1,4 @@
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { from } from 'rxjs';
@@ -21,10 +21,17 @@ const sanity = createClient({
   templateUrl: './nosotros.html',
   styleUrl: './nosotros.css',
 })
-
-export class Nosotros{
+export class Nosotros {
   datosOng = toSignal(
-    from(sanity.fetch<DatosOng>(`*[_type == "datosOng"][0]`)),
+    from(sanity.fetch<DatosOng>(`
+      *[_type == "datosOng"][0]{
+        ...,
+        profesionales[]{
+          ...,
+          "foto": foto.asset->url
+        }
+      }
+    `)),
     { initialValue: null }
   );
 }

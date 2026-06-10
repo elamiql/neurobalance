@@ -17,6 +17,16 @@ export interface Servicio {
   items: string[];
 }
 
+export interface Profesional {
+  _key: string;
+  nombre: string;
+  rol: string;
+  especialidad?: string;
+  bio?: string;
+  email?: string;
+  foto: string;
+}
+
 export interface DatosOng {
   descripcion: string;
   descripcion2: string;
@@ -29,4 +39,5 @@ export interface DatosOng {
   contacto: Contacto;
   redes: Redes;
   servicios: Servicio[];
+  profesionales: Profesional[];
 }

@@ -67,5 +67,27 @@ export const datosOngSchema = defineType({
         ]
       }]
     }),
+
+    defineField({
+      name: 'profesionales',
+      title: 'Profesionales',
+      type: 'array',
+      of: [{
+        type: 'object',
+        fields: [
+          defineField({ name: 'nombre', title: 'Nombre', type: 'string' }),
+          defineField({ name: 'rol', title: 'Rol', type: 'string' }),
+          defineField({ name: 'especialidad', title: 'Especialidad', type: 'string' }),
+          defineField({ name: 'bio', title: 'Biografía', type: 'text' }),
+          defineField({ name: 'email', title: 'Email', type: 'string' }),
+          defineField({
+            name: 'foto',
+            title: 'Foto',
+            type: 'image',
+            options: { hotspot: true }
+          }),
+        ]
+      }]
+    }),
   ]
 })
