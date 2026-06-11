@@ -33,7 +33,13 @@
         @for (prof of datos.profesionales; track prof._key) {
           <div class="prof-card">
             <div class="prof-card__foto">
-              <img [src]="prof.foto" [alt]="'Foto de ' + prof.nombre" />
+              <img
+                [src]="getSanityImageUrl(prof.foto)"
+                [alt]="'Foto de ' + prof.nombre"
+                width="400"
+                height="400"
+                loading="lazy"
+              />
             </div>
             <div class="prof-card__info">
               <h3 class="prof-card__nombre">{{ prof.nombre }}</h3>
@@ -55,6 +61,6 @@
       </div>
     </section>
   } @else {
-    <p>Cargando...</p>
+    <div class="nosotros-skeleton"></div>
   }
 </main>

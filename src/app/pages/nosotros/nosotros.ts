@@ -14,4 +14,9 @@ import { DatosOngService } from '../../services/datos-ong.services';
 export class Nosotros {
   private datosOngService = inject(DatosOngService);
   datosOng = toSignal(this.datosOngService.datosOng$, { initialValue: null });
+  
+  getSanityImageUrl(url: string, width = 400): string {
+    if (!url) return '';
+    return `${url}?w=${width}&fit=clip&auto=format&q=80`;
+  }
 }
