@@ -1,18 +1,8 @@
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router, NavigationStart } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { from } from 'rxjs';
-import { createClient } from '@sanity/client';
-import { DatosOng } from '../../pages/home/models/datos-ong.interface';
-import { environment } from '../../../environments/environment';
-
-const sanity = createClient({
-  projectId: environment.sanityProjectId,
-  dataset: environment.sanityDataset,
-  useCdn: true,
-  apiVersion: '2024-01-01',
-  token: environment.sanityToken
-});
+import { filter } from 'rxjs/operators';
+import { DatosOngService } from '../../services/datos-ong.services';
 
 @Component({
   selector: 'app-header',
@@ -23,13 +13,19 @@ const sanity = createClient({
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Header {
+  private router = inject(Router);
+  private datosOngService = inject(DatosOngService);
+
   menuAbierto = false;
   subMenuAbierto = false;
 
-  datosOng = toSignal(
-    from(sanity.fetch<DatosOng>(`*[_type == "datosOng"][0]`)),
-    { initialValue: null }
-  );
+  datosOng = toSignal(this.datosOngService.datosOng$, { initialValue: null });
+
+  constructor() {
+    this.router.events
+      .pipe(filter(e => e instanceof NavigationStart))
+      .subscribe(() => this.cerrarMenus());
+  }
 
   toggleMenu() {
     this.menuAbierto = !this.menuAbierto;

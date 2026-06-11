@@ -5,21 +5,35 @@
       {{ datos.contacto.email }}
     </a>
     <div class="topbar-social">
-      <a [href]="datos.redes.facebook" aria-label="Facebook" target="_blank">
+      <a
+        [href]="datos.redes.facebook"
+        aria-label="Facebook"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <i class="fab fa-facebook-f"></i>
       </a>
-      <a [href]="datos.redes.instagram" aria-label="Instagram" target="_blank">
+      <a
+        [href]="datos.redes.instagram"
+        aria-label="Instagram"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <i class="fab fa-instagram"></i>
       </a>
-      <a [href]="datos.redes.tiktok" aria-label="TikTok" target="_blank">
+      <a [href]="datos.redes.tiktok" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-tiktok"></i>
       </a>
+
       <a
         [href]="'https://wa.me/' + datos.contacto.telefono"
         class="topbar-contact"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="WhatsApp"
       >
+      </a>
+      <a>
         <i class="fab fa-whatsapp"></i>
         {{ datos.contacto.telefonoDisplay }}
       </a>
@@ -34,8 +48,10 @@
     alt="Logo ONG"
     style="cursor: pointer"
   />
+
   <button class="menu-toggle" [class.active]="menuAbierto" (click)="toggleMenu()">
-    <i class="fas fa-bars"></i>
+    <i class="fas fa-bars icon-bars"></i>
+    <i class="fas fa-times icon-close"></i>
   </button>
 
   <nav [class.show]="menuAbierto">
@@ -45,15 +61,11 @@
       <li><a routerLink="/objetivos">Objetivos</a></li>
 
       <li class="dropdown">
-        <span (click)="toggleSubMenu($event)">Nosotros ▾</span>
+        <span (click)="toggleSubMenu($event)">Nosotros <span class="flecha-dropdown">▾</span></span>
         <ul class="submenu" [class.show]="subMenuAbierto">
-          <li><a routerLink="/nosotros" fragment="mision" (click)="cerrarMenus()">Misión</a></li>
-          <li><a routerLink="/nosotros" fragment="vision" (click)="cerrarMenus()">Visión</a></li>
-          <li>
-            <a routerLink="/nosotros" fragment="profesionales" (click)="cerrarMenus()"
-              >Profesionales</a
-            >
-          </li>
+          <li><a routerLink="/nosotros" fragment="mision">Misión</a></li>
+          <li><a routerLink="/nosotros" fragment="vision">Visión</a></li>
+          <li><a routerLink="/nosotros" fragment="profesionales">Profesionales</a></li>
         </ul>
       </li>
     </ul>
