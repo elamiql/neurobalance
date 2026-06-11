@@ -1,47 +1,28 @@
-/* ─── HERO ─────────────────────────────────────────────────────────── */
+/* ================================================================
+   HOME — Neuro Balance
+   Orden: Variables → Animaciones → Hero → Botones → Quiénes somos
+   → Responsive (agrupado al final)
+   ================================================================ */
 
-.hero {
-  position: relative;
-  width: 100%;
-  min-height: 88vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
+
+/* ─── VARIABLES LOCALES ─────────────────────────────────────────── */
+
+:host {
+  --pink:        #ED6C9D;
+  --pink-dark:   #D93690;
+  --wine:        #90183E;
+  --dark-bg:     #2a1a2e;
+  --mid-bg:      #3C3C3B;
+  --text-main:   #3C3C3B;
+  --text-muted:  #555;
+  --text-light:  #666;
+  --font-display: 'Playfair Display', serif;
+  --font-body:    'Nunito', sans-serif;
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Fondo: gradiente con los colores de la ONG.
-   Cuando tenga foto real, reemplazar el background del .hero-bg por:
-   background: url('ruta/foto.jpg') center/cover no-repeat;            */
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 20% 60%, rgba(237, 108, 157, 0.45) 0%, transparent 55%),
-    radial-gradient(ellipse at 80% 30%, rgba(144, 24, 62, 0.35) 0%, transparent 50%),
-    linear-gradient(135deg, #2a1a2e 0%, #3C3C3B 50%, #1a0d1a 100%);
-  z-index: 0;
-}
 
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  /* Grain texture sutil */
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-  opacity: 0.4;
-}
-
-/* Contenido */
-.hero-content {
-  position: relative;
-  z-index: 1;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 6rem 5% 8rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  animation: heroFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
+/* ─── ANIMACIONES ───────────────────────────────────────────────── */
 
 @keyframes heroFadeUp {
   from {
@@ -54,31 +35,79 @@
   }
 }
 
+
+/* ─── HERO ──────────────────────────────────────────────────────── */
+
+/*
+  Fondo: gradiente con los colores de la ONG.
+  Cuando haya foto real, reemplazar el background de .hero-bg por:
+  background: url('ruta/foto.jpg') center / cover no-repeat;
+*/
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 20% 60%, rgba(237, 108, 157, 0.45) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 30%, rgba(144,  24,  62, 0.35) 0%, transparent 50%),
+    linear-gradient(135deg, #2a1a2e 0%, #3C3C3B 50%, #1a0d1a 100%);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.4;
+  /* Grain sutil */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 5% 8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  animation: heroFadeUp 0.9s var(--ease-out) both;
+}
+
 .hero-eyebrow {
   display: inline-block;
-  font-family: 'Nunito', sans-serif;
+  width: fit-content;
+  padding: 0.35rem 0.9rem;
+  font-family: var(--font-body);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #ED6C9D;
-  padding: 0.35rem 0.9rem;
   border: 1px solid rgba(237, 108, 157, 0.4);
   border-radius: 100px;
-  width: fit-content;
-  backdrop-filter: blur(4px);
   background: rgba(237, 108, 157, 0.08);
-  animation: heroFadeUp 0.9s 0.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  backdrop-filter: blur(4px);
+  animation: heroFadeUp 0.9s 0.1s var(--ease-out) both;
 }
 
 .hero-title {
-  font-family: 'Playfair Display', serif;
+  margin: 0;
+  font-family: var(--font-display);
   font-size: clamp(2.8rem, 7vw, 5.5rem);
   font-weight: 700;
   line-height: 1.05;
   color: #ffffff;
-  margin: 0;
-  animation: heroFadeUp 0.9s 0.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: heroFadeUp 0.9s 0.2s var(--ease-out) both;
 }
 
 .hero-title em {
@@ -87,36 +116,66 @@
 }
 
 .hero-subtitle {
-  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  max-width: 520px;
+  font-family: var(--font-body);
   font-size: clamp(1rem, 2vw, 1.18rem);
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.78);
-  max-width: 520px;
   line-height: 1.65;
-  margin: 0;
-  animation: heroFadeUp 0.9s 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+  color: rgba(255, 255, 255, 0.78);
+  animation: heroFadeUp 0.9s 0.32s var(--ease-out) both;
 }
 
 .hero-actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
   flex-wrap: wrap;
+  gap: 1rem;
   margin-top: 0.5rem;
-  animation: heroFadeUp 0.9s 0.44s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: heroFadeUp 0.9s 0.44s var(--ease-out) both;
+}
+
+/* Wave inferior */
+.hero-wave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  line-height: 0;
+}
+
+.hero-wave svg {
+  width: 100%;
+  height: 80px;
+}
+
+/* Skeleton — misma altura que .hero, evita CLS mientras carga Sanity */
+.hero-skeleton {
+  width: 100%;
+  min-height: 88vh;
+  background: linear-gradient(135deg, #2a1a2e 0%, #3C3C3B 50%, #1a0d1a 100%);
+}
+
+
+/* ─── BOTONES ───────────────────────────────────────────────────── */
+
+.btn-primary,
+.btn-ghost {
+  padding: 0.75rem 1.75rem;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s,
+              transform 0.2s, box-shadow 0.2s;
 }
 
 .btn-primary {
-  padding: 0.75rem 1.75rem;
   background-color: #D93690;
   color: #ffffff;
-  font-family: 'Nunito', sans-serif;
-  font-size: 0.92rem;
   font-weight: 700;
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 .btn-primary:hover {
@@ -126,16 +185,10 @@
 }
 
 .btn-ghost {
-  padding: 0.75rem 1.75rem;
   background: transparent;
   color: #ffffff;
-  font-family: 'Nunito', sans-serif;
-  font-size: 0.92rem;
   font-weight: 600;
   border: 1.5px solid rgba(255, 255, 255, 0.4);
-  border-radius: 8px;
-  cursor: pointer;
-  transition: border-color 0.2s, background 0.2s, transform 0.2s;
 }
 
 .btn-ghost:hover {
@@ -145,49 +198,12 @@
   transform: translateY(-2px);
 }
 
-/* Wave inferior */
-.hero-wave {
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 100%;
-  z-index: 1;
-  line-height: 0;
-}
 
-.hero-wave svg {
-  width: 100%;
-  height: 80px;
-}
-
-/* ─── RESPONSIVE ────────────────────────────────────────────────────── */
-@media (max-width: 768px) {
-  .hero {
-    min-height: 75vh;
-  }
-
-  .hero-content {
-    padding: 4rem 5% 6rem;
-    gap: 1rem;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .btn-primary,
-  .btn-ghost {
-    width: 100%;
-    text-align: center;
-  }
-}
-
-/* ─── QUIÉNES SOMOS ─────────────────────────────────────────────────── */
+/* ─── QUIÉNES SOMOS ─────────────────────────────────────────────── */
 
 .quienes-somos {
-  background-color: #ffffff;
   padding: 5rem 5%;
+  background-color: #ffffff;
 }
 
 .qs-inner {
@@ -207,12 +223,12 @@
 }
 
 .qs-titulo {
-  font-family: 'Playfair Display', serif;
+  margin: 0;
+  font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
   line-height: 1.1;
   color: #3C3C3B;
-  margin: 0;
 }
 
 .qs-titulo em {
@@ -221,14 +237,14 @@
 }
 
 .qs-parrafo {
-  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.75;
   color: #555;
-  margin: 0;
 }
 
-/* Columna derecha: cards */
+/* Columna derecha — cards */
 .qs-cards {
   display: flex;
   flex-direction: column;
@@ -236,14 +252,14 @@
 }
 
 .qs-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.5rem 1.5rem 1.5rem 1.25rem;
   background: #fafafa;
   border: 1px solid #f0f0f0;
   border-left: 4px solid #D93690;
   border-radius: 10px;
-  padding: 1.5rem 1.5rem 1.5rem 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
   transition: box-shadow 0.2s, transform 0.2s;
 }
 
@@ -252,33 +268,32 @@
   transform: translateY(-2px);
 }
 
+.qs-card--valores {
+  border-left-color: #90183E;
+}
+
 .qs-card-icon {
-  color: #D93690;
   display: flex;
   align-items: center;
+  color: #D93690;
 }
 
 .qs-card h3 {
-  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  font-family: var(--font-body);
   font-size: 0.98rem;
   font-weight: 800;
-  color: #3C3C3B;
-  margin: 0;
-  text-transform: uppercase;
   letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #3C3C3B;
 }
 
 .qs-card p {
-  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  font-family: var(--font-body);
   font-size: 0.92rem;
   line-height: 1.65;
   color: #666;
-  margin: 0;
-}
-
-/* Card de valores */
-.qs-card--valores {
-  border-left-color: #90183E;
 }
 
 .qs-valores {
@@ -291,16 +306,18 @@
 }
 
 .qs-valores li {
-  font-family: 'Nunito', sans-serif;
+  padding: 0.25rem 0.75rem;
+  font-family: var(--font-body);
   font-size: 0.78rem;
   font-weight: 700;
   color: #90183E;
   background: rgba(144, 24, 62, 0.07);
   border-radius: 100px;
-  padding: 0.25rem 0.75rem;
 }
 
-/* ─── RESPONSIVE ────────────────────────────────────────────────────── */
+
+/* ─── RESPONSIVE ────────────────────────────────────────────────── */
+
 @media (max-width: 900px) {
   .qs-inner {
     grid-template-columns: 1fr;
@@ -309,6 +326,27 @@
 }
 
 @media (max-width: 768px) {
+  .hero,
+  .hero-skeleton {
+    min-height: 75vh;
+  }
+
+  .hero-content {
+    padding: 4rem 5% 6rem;
+    gap: 1rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-primary,
+  .btn-ghost {
+    width: 100%;
+    text-align: center;
+  }
+
   .quienes-somos {
     padding: 3.5rem 5%;
   }
