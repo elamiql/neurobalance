@@ -1,18 +1,7 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { from } from 'rxjs';
-import { createClient } from '@sanity/client';
-import { DatosOng } from '../home/models/datos-ong.interface';
-import { environment } from '../../../environments/environment';
-
-const sanity = createClient({
-  projectId: environment.sanityProjectId,
-  dataset: environment.sanityDataset,
-  useCdn: true,
-  apiVersion: '2024-01-01',
-  token: environment.sanityToken
-});
+import { DatosOngService } from '../../services/datos-ong.services';
 
 @Component({
   selector: 'app-nosotros',
@@ -20,18 +9,9 @@ const sanity = createClient({
   imports: [CommonModule],
   templateUrl: './nosotros.html',
   styleUrl: './nosotros.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Nosotros {
-  datosOng = toSignal(
-    from(sanity.fetch<DatosOng>(`
-      *[_type == "datosOng"][0]{
-        ...,
-        profesionales[]{
-          ...,
-          "foto": foto.asset->url
-        }
-      }
-    `)),
-    { initialValue: null }
-  );
+  private datosOngService = inject(DatosOngService);
+  datosOng = toSignal(this.datosOngService.datosOng$, { initialValue: null });
 }
