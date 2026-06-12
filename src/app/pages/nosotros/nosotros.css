@@ -113,6 +113,7 @@
   flex-direction: column;
   gap: 0.3rem;
   text-align: center;
+  white-space: pre-wrap;
 }
 
 .prof-card__nombre {

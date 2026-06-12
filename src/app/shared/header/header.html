@@ -30,10 +30,8 @@
         class="topbar-contact"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="WhatsApp"
       >
-        <i class="fab fa-whatsapp"></i>
-        {{ datos.contacto.telefonoDisplay }}
+        <i class="fab fa-whatsapp" aria-hidden="true"></i> {{ datos.contacto.telefonoDisplay }}
       </a>
     </div>
   }
@@ -44,10 +42,18 @@
     routerLink="/"
     src="logo/Logo Neuro Balance RRSS - Sin Fondo 3x.png"
     alt="Logo ONG"
+    width="64"
+    height="64"
     style="cursor: pointer"
   />
 
-  <button class="menu-toggle" [class.active]="menuAbierto" (click)="toggleMenu()">
+  <button
+    class="menu-toggle"
+    [class.active]="menuAbierto"
+    (click)="toggleMenu()"
+    [attr.aria-label]="menuAbierto ? 'Cerrar menú' : 'Abrir menú'"
+    [attr.aria-expanded]="menuAbierto"
+  >
     <i class="fas fa-bars icon-bars"></i>
     <i class="fas fa-times icon-close"></i>
   </button>
