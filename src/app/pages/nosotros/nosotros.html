@@ -31,11 +31,13 @@
       </div>
       <div class="prof-grid">
         @for (prof of datos.profesionales; track prof._key) {
-          <div class="prof-card">
+          <div class="prof-card" (click)="abrirModal(prof)">
             <div class="prof-card__foto">
               <img
                 [src]="getSanityImageUrl(prof.foto)"
                 [alt]="'Foto de ' + prof.nombre"
+                [class.cargada]="imagenesCargadas().has(prof._key)"
+                (load)="marcarCargada(prof._key)"
                 width="400"
                 height="400"
                 loading="lazy"
@@ -47,14 +49,6 @@
               @if (prof.especialidad) {
                 <p class="prof-card__especialidad">{{ prof.especialidad }}</p>
               }
-              @if (prof.bio) {
-                <p class="prof-card__bio">{{ prof.bio }}</p>
-              }
-              @if (prof.email) {
-                <a [href]="'mailto:' + prof.email" class="prof-card__email">
-                  <i class="fas fa-envelope"></i> {{ prof.email }}
-                </a>
-              }
             </div>
           </div>
         }
@@ -62,5 +56,43 @@
     </section>
   } @else {
     <div class="nosotros-skeleton"></div>
+  }
+
+  @if (profesionalSeleccionado(); as prof) {
+    <div
+      class="prof-modal-overlay"
+      (click)="cerrarModal()"
+      (keydown.escape)="cerrarModal()"
+      tabindex="0"
+    >
+      <div class="prof-modal" (click)="$event.stopPropagation()">
+        <button class="prof-modal__close" (click)="cerrarModal()" aria-label="Cerrar">✕</button>
+
+        <div class="prof-modal__foto">
+          <img
+            [src]="getSanityImageUrl(prof.foto, 600)"
+            [alt]="'Foto de ' + prof.nombre"
+            [class.cargada]="imagenesCargadas().has(prof._key + '-modal')"
+            (load)="marcarCargada(prof._key + '-modal')"
+          />
+        </div>
+
+        <div class="prof-modal__info">
+          <h2 class="prof-modal__nombre">{{ prof.nombre }}</h2>
+          <p class="prof-modal__rol">{{ prof.rol }}</p>
+          @if (prof.especialidad) {
+            <p class="prof-modal__especialidad">{{ prof.especialidad }}</p>
+          }
+          @if (prof.bio) {
+            <p class="prof-modal__bio">{{ prof.bio }}</p>
+          }
+          @if (prof.email) {
+            <a [href]="'mailto:' + prof.email" class="prof-modal__email">
+              <i class="fas fa-envelope"></i> {{ prof.email }}
+            </a>
+          }
+        </div>
+      </div>
+    </div>
   }
 </main>
