@@ -254,6 +254,7 @@
   line-height: 1.75;
   text-align: justify;
   margin: 0.75rem 0 0;
+  white-space: pre-wrap;
 }
 
 .prof-modal__email {
